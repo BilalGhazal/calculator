@@ -1,3 +1,8 @@
+let firstOperand;
+let secondOperand;
+let operator;
+
+
 function add(firstOperand, secondOperand) {
     return firstOperand + secondOperand;
 }
