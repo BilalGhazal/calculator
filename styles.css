@@ -62,10 +62,6 @@ html, body {
     border: 0px;
 }
 
-.item.zero {
-    flex: 2;
-}
-
 .item.special {
     background-color: #FF8F1F;
 }

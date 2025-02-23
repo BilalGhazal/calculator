@@ -4,6 +4,7 @@ const clear = document.querySelector(".clear");
 const sign = document.querySelectorAll(".operator");
 const negate = document.querySelector(".negate");
 const percent = document.querySelector(".percent");
+const backspace = document.querySelector(".backspace");
 
 
 let firstOperand = "";
@@ -33,9 +34,6 @@ sign.forEach(element => {element.addEventListener("click", () => {
         operator = element.textContent;
         console.log(operator);
     }
-
-    
-
 }
 )})
 
@@ -92,6 +90,18 @@ percent.addEventListener("click", () => {
     }
 })
 
+backspace.addEventListener("click", () => {
+    if (display.textContent === firstOperand) {
+        firstOperand = firstOperand.substring(0, firstOperand.length - 1)
+        updateDisplay(firstOperand);
+    }
+
+    if (display.textContent === secondOperand) {
+        secondOperand = secondOperand.substring(0, secondOperand.length - 1)
+        updateDisplay(secondOperand);
+    }
+})
+
 
 
 function updateDisplay(input) {
@@ -141,3 +151,33 @@ function operate(firstOperand, secondOperand, operator) {
 
 
 
+
+const buttonsMap = {
+    "0": ".b0",
+    "1": ".b1",
+    "2": ".b2",
+    "3": ".b3",
+    "4": ".b4",
+    "5": ".b5",
+    "6": ".b6",
+    "7": ".b7",
+    "8": ".b8",
+    "9": ".b9",
+    "Enter": ".b10",
+    "NumpadAdd": ".b11",
+    "NumpadSubtract": ".b12",
+    "NumpadMultiply": ".b13",
+    "NumpadDivide": ".b14",
+    "Delete": ".b15",
+    ".": ".b16",
+    "Backspace": ".b17",
+};
+
+
+document.addEventListener("keydown", function(event) {
+    const buttonClass = buttonsMap[event.key];
+    if (buttonClass) {
+        document.querySelector(buttonClass).click();
+    }
+
+})
