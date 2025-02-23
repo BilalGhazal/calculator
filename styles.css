@@ -69,3 +69,11 @@ html, body {
 .item.special {
     background-color: #FF8F1F;
 }
+
+button:active {
+    filter: brightness(150%);
+}
+
+.sign:focus {
+    filter: brightness(135%);
+}
